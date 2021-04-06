@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 **/.DS_Store
 **/*.ipynb_checkpoints/
 **/__pycache__
 .vscode
 test.ipynb
+=======
+**/.DS_Store
+**/*.ipynb_checkpoints/
+**/__pycache__
+.vscode
+test.ipynb
+week_03/02-sql_2.ipynb
+>>>>>>> a924e580fabf26c5fbf395a09f3dcdb06839b58c
