@@ -223,15 +223,21 @@ WHERE first_name IS NOT NULL;
 	# less than <
 	# less than or equal  <=
 
--- EXERCISE: Retrieve all columns for female employes hired (strictly) after '2015-01-01'
-
+-- EXERCISE: Retrieve all columns for female employes hired (strictly) after '2000-01-01'
+SELECT *
+FROM employees
+WHERE gender = "F" AND hire_date > "2000-01-01";
 
 
 ###########
 -- SELECT DISTINCT: https://www.mysqltutorial.org/mysql-distinct.aspx
-
+SELECT gender
+FROM employees;
     
 # make clear you don´t want duplicates 
+
+SELECT DISTINCT gender
+FROM employees;
 
 ###########
 -- Introduction to Aggregate Functions: https://www.mysqltutorial.org/mysql-aggregate-functions.aspx
@@ -245,9 +251,12 @@ All aggregate functions IGNORE NULL values unless specified
 # How many employees are there in our database? 
 # hint: emp_no is the primary key of the table
 
-
+SELECT COUNT(emp_no)
+FROM employees;
 
 # How many different names do we have in the table??
+SELECT COUNT(DISTINCT first_name)
+FROM employees;
 
 -- How many employes were born after 1965-01-01??
 SELECT COUNT(*) # NOTE using * makes COUNT to include NULL values
@@ -261,17 +270,43 @@ WHERE
 # Order names in alphabetical order
 # ASC is the default
 
+SELECT *
+FROM employees
+ORDER BY first_name ASC;
+
+SELECT *
+FROM employees
+ORDER BY first_name DESC;
 
 # Use multiple fields
+SELECT *
+FROM employees
+ORDER BY first_name, last_name ASC;
 
 
 # MAX()
 
+SELECT MAX(salary)
+FROM salaries;
+
 
 # AVG()
-
+SELECT AVG(salary)
+FROM salaries;
 
 # Count the number of unique departments
+
+
+SELECT COUNT(DISTINCT first_name)
+FROM employees;
+
+SELECT COUNT(first_name)
+FROM employees;
+
+SELECT COUNT(first_name)
+FROM employees
+WHERE first_name = "Hugo";
+
 
 
 ###########
@@ -295,17 +330,29 @@ FROM employees
 GROUP BY first_name;  
 
 # EXERCISE: Repeat the query but ordering the result in alphabetical order
-
-
+SELECT first_name, COUNT(first_name)
+FROM employees
+GROUP BY first_name
+ORDER BY first_name;
 
 ###########
 -- Using Aliases (AS): https://www.mysqltutorial.org/mysql-alias/
+
 
 /* Used to rename a selection from your query to clarify the output*/
 
 # Rename the COUNT(first_name) column
 
+SELECT first_name, COUNT(first_name) AS names_count
+FROM employees
+GROUP BY first_name
+ORDER BY first_name;
+
+
 ###### CONCAT
+
+SELECT emp_no, CONCAT (first_name, " ", last_name) as full_name
+FROM employees;
 
 ###########
 -- HAVING: https://www.mysqltutorial.org/mysql-having.aspx
@@ -351,7 +398,9 @@ SELECT
 FROM
     employees
 GROUP BY first_name
-# HAVING|WHERE names_count > 250
+
+HAVING names_count > 250
+
 ORDER BY first_name;
 
 
@@ -369,10 +418,35 @@ From the subset of employees hired before 2015, (it applies to all rows --> WHER
 Extract a list of all names that are encountered less than 250 times. (aggregate funct COUNT --> HAVING)
 */
 
-
+SELECT 
+    first_name, COUNT(first_name) AS names_count
+FROM
+    employees
+WHERE
+    hire_date < '2015-01-01'
+GROUP BY first_name
+HAVING COUNT(first_name) < 250
+ORDER BY first_name;
 
 ###########
 -- LIMIT: https://www.mysqltutorial.org/mysql-limit.aspxauthors
-
-
 # Show the employee numbers of the 10 highest paid employees 
+SELECT 
+    emp_no, salary
+FROM
+    salaries
+ORDER BY salary DESC
+LIMIT 10;
+
+
+########### EXTRA ###################
+-- SQL has built-in functions to deal with NULL values. Good examples are:
+
+# IFNULL(expression_1,expression_2); returns expression_1 if expression_1 is not NULL ; otherwise, it returns expression_2
+
+# COALESCE(value1,value2,...);takes a number of arguments and returns the first non-NULL argument. 
+# In case all arguments are NULL, the COALESCE function returns NULL.
+
+# for more info: 
+-- > COALESECE() https://www.mysqltutorial.org/mysql-coalesce/
+-- > IFNULL() https://www.mysqltutorial.org/mysql-ifnull/
