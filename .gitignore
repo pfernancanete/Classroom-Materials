@@ -9,6 +9,10 @@ test.ipynb
 **/*.ipynb_checkpoints/
 **/__pycache__
 .vscode
+<<<<<<< HEAD
 test.ipynb
 week_03/02-sql_2.ipynb
 >>>>>>> a924e580fabf26c5fbf395a09f3dcdb06839b58c
+=======
+test.ipynb
+>>>>>>> c687ade5681f82741e8949b851439a01ed9304c8
