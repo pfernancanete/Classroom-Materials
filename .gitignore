@@ -12,6 +12,7 @@ test.ipynb
 <<<<<<< HEAD
 <<<<<<< HEAD
 test.ipynb
+<<<<<<< HEAD
 week_03/02-sql_2.ipynb
 >>>>>>> a924e580fabf26c5fbf395a09f3dcdb06839b58c
 =======
@@ -21,3 +22,10 @@ test.ipynb
 test.ipynb
 .env
 >>>>>>> 13845f3341fcd3886616fa3ba82f0663876438aa
+=======
+.env
+
+week_04/02-GeoViz_folium.ipynb
+week_04/03-GeoViz_coropletico.ipynb
+week_04/04-geo_dataframe.ipynb
+>>>>>>> 30f683c058b9632c4c125cc6d742b4468ba988a2
