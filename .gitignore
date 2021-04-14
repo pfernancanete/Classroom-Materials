@@ -24,8 +24,11 @@ test.ipynb
 >>>>>>> 13845f3341fcd3886616fa3ba82f0663876438aa
 =======
 .env
+<<<<<<< HEAD
 
 week_04/02-GeoViz_folium.ipynb
 week_04/03-GeoViz_coropletico.ipynb
 week_04/04-geo_dataframe.ipynb
 >>>>>>> 30f683c058b9632c4c125cc6d742b4468ba988a2
+=======
+>>>>>>> 76837ab40bc98a2fa9983cee8badd240a9624b5a
