@@ -25,6 +25,7 @@ test.ipynb
 =======
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 week_04/02-GeoViz_folium.ipynb
 week_04/03-GeoViz_coropletico.ipynb
@@ -32,3 +33,8 @@ week_04/04-geo_dataframe.ipynb
 >>>>>>> 30f683c058b9632c4c125cc6d742b4468ba988a2
 =======
 >>>>>>> 76837ab40bc98a2fa9983cee8badd240a9624b5a
+=======
+07-geoqueries.ipynb
+losdatos.json
+losveganos.json
+>>>>>>> 8824a4420c7a3222cf0ee8b8709efbe330954428
